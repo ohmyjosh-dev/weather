@@ -6,9 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlclarke13/weather.git"
+  },
   "keywords": [
     "weather"
   ],
   "author": "Joshua Clarke",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlclarke13/weather/issues"
+  },
+  "homepage": "https://github.com/jlclarke13/weather#readme"
 }
