@@ -1,0 +1,59 @@
+// extends.scss
+
+%block-relative {
+  display: block;
+  position: relative;
+}
+%block-relative-fw {
+  @extend %block-relative;
+  width: 100%;
+}
+%block-relative-fh {
+  @extend %block-relative;
+  height: 100%;
+}
+%block-relative-fw-fh {
+  @extend %block-relative-fw;
+  @extend %block-relative-fh;
+}
+
+%block-fixed {
+  display: block;
+  position: fixed;
+}
+%block-fixed-fw {
+  @extend %block-fixed;
+  width: 100%;
+}
+%block-fixed-fh {
+  @extend %block-fixed;
+  height: 100%;
+}
+%block-fixed-fw-fh {
+  @extend %block-fixed-fw;
+  @extend %block-fixed-fh;
+}
+
+%block-fixed-tl0 {
+  @extend %block-fixed;
+  top: 0;
+  left: 0;
+}
+%block-fixed-tl0-fw {
+  @extend %block-fixed-tl0;
+  width: 100%;
+}
+%block-fixed-tl0-fh {
+  @extend %block-fixed-tl0;
+  height: 100%;
+}
+%block-fixed-tl0-fw-fh {
+  @extend %block-fixed-tl0-fw;
+  @extend %block-fixed-tl0-fh;
+}
+
+%clearfix {
+  display: table;
+  content: '';
+  clear: both;
+}

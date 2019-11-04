@@ -1,0 +1,53 @@
+@mixin animation($property) {
+	-webkit-animation:  $property; /* Safari 4+ */
+  -moz-animation:     $property; /* Fx 5+ */
+  -o-animation:       $property; /* Opera 12+ */
+  animation:          $property; /* IE 10+, Fx 29+ */
+}
+
+@mixin animation-delay($property) {
+  -webkit-animation-delay:  $property; /* Safari 4+ */
+  -moz-animation-delay:     $property; /* Fx 5+ */
+  -o-animation-delay:       $property; /* Opera 12+ */
+  animation-delay:          $property; /* IE 10+, Fx 29+ */
+}
+
+@mixin animation-fill-mode($property) {
+  -webkit-animation-fill-mode:  $property; /* Safari 4+ */
+  -moz-animation-fill-mode:     $property; /* Fx 5+ */
+-o-animation-fill-mode:         $property; /* Opera 12+ */
+  animation-fill-mode:          $property; /* IE 10+, Fx 29+ */
+}
+
+@mixin box-sizing($property) {
+  -webkit-box-sizing: $property;
+  -moz-box-sizing:    $property;
+  box-sizing:         $property;
+}
+
+@mixin box-shadow($property) {
+  -webkit-box-shadow: $property;
+  -moz-box-shadow:    $property;
+  box-shadow:         $property;
+}
+
+@mixin opacity($hundred, $tenth) {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$hundred)";
+  filter: alpha(opacity=$hundred);
+  -moz-opacity: $tenth;
+  -khtml-opacity: $tenth;
+  opacity: $tenth; 
+}
+
+@mixin transition($property) {
+  -webkit-transition: $property;
+  -moz-transition:    $property;
+  -o-transition:      $property;
+  transition:         $property;
+}
+
+@mixin transform($property) {
+  -webkit-transform:  $property;
+  -ms-transform:      $property;
+  transform:          $property;
+}
