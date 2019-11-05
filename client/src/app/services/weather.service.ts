@@ -8,6 +8,9 @@ import { IWeather } from './../interfaces/IWeather'
   providedIn: 'root'
 })
 export class WeatherService {
+
+  domain: string = 'http://localhost:8080'
+
   constructor(private http: HttpClient) {}
 
   private options: {
@@ -20,16 +23,8 @@ export class WeatherService {
     }
   }
 
-  getWeather(): any {
-    let weather: IWeather
-
-    const weatherApi = 'http://localhost:8080/weather'
-    const response: Promise<IWeather> = fetch(weatherApi)
-      .then(res => res.json())
-      .catch(err => {
-        throw new Error(err)
-      })
-    return response
+  getWeather(): Observable<IWeather> {
+    return this.http.get<IWeather>(`${this.domain}/weather`).pipe(catchError(this.errorHandler))
   }
 
   errorHandler(error: HttpErrorResponse) {

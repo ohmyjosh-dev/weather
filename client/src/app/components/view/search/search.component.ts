@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { WeatherService } from "../../../services/weather.service"
+import { share } from 'rxjs/internal/operators/share'
 
 @Component({
   selector: "app-search",
@@ -8,14 +9,14 @@ import { WeatherService } from "../../../services/weather.service"
 })
 export class SearchComponent implements OnInit {
 
-  currentWeather
+  forecast: any
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
+
     try {
-      const forecast = this.weatherService.getWeather()
-      debugger
+      this.forecast = this.weatherService.getWeather().pipe(share())
     } catch (error) {
       console.log(error)
     }
