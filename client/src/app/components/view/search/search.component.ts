@@ -9,13 +9,13 @@ import { IWeather } from 'src/app/interfaces/IWeather'
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  forecast: Observable<IWeather>
+  weather: Observable<IWeather>
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
     try {
-      this.forecast = this.weatherService.getWeather()
+      this.weather = this.weatherService.getWeather()
     } catch (error) {
       console.log(error)
     }
