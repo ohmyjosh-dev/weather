@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { throwError as observableThrowError, Observable } from 'rxjs'
 import { catchError } from 'rxjs/operators'
 import { IWeather } from './../interfaces/IWeather'
+import { ISearch } from '../interfaces/ISearch'
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,8 @@ export class WeatherService {
     }
   }
 
-  getWeather(): Observable<IWeather> {
-    return this.http.get<IWeather>(`${this.domain}/weather`).pipe(catchError(this.errorHandler))
+  getWeather(city: ISearch): Observable<IWeather> {
+    return this.http.post<IWeather>(`${this.domain}/weather`, city).pipe(catchError(this.errorHandler))
   }
 
   errorHandler(error: HttpErrorResponse) {
