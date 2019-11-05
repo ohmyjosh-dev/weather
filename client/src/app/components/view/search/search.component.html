@@ -1,38 +1,44 @@
 <div>
-  
+  <form [formGroup]="searchForm" (submit)="onSearchSubmit()">
+    <div class="form-group">
+      <label for="city">City: ex/ Toronto, ON</label>
+      <input type="text" class="form-control" name="city" formControlName="city" />
+    </div>
+    <input type="submit" value="submit" />
+  </form>
 </div>
 <div>
-  {{ (weather | async)?.location.city }}
-  {{ (weather | async)?.location.country }}
-  {{ (weather | async)?.location.lat }}
-  {{ (weather | async)?.location.long }}
-  {{ (weather | async)?.location.region }}
-  {{ (weather | async)?.location.timezone_id }}
+  {{ weather?.location.city }}
+  {{ weather?.location.country }}
+  {{ weather?.location.lat }}
+  {{ weather?.location.long }}
+  {{ weather?.location.region }}
+  {{ weather?.location.timezone_id }}
 
 
-  {{ (weather | async)?.current_observation.wind.chill // there is no chill }} 
-  {{ (weather | async)?.current_observation.wind.direction }}
-  {{ (weather | async)?.current_observation.wind.speed }}
+  {{ weather?.current_observation.wind.chill // there is no chill }} 
+  {{ weather?.current_observation.wind.direction }}
+  {{ weather?.current_observation.wind.speed }}
 
-  {{ (weather | async)?.current_observation.atmosphere.humidity }}
-  {{ (weather | async)?.current_observation.atmosphere.visibility }}
-  {{ (weather | async)?.current_observation.atmosphere.pressure }}
-  {{ (weather | async)?.current_observation.atmosphere.rising }}
+  {{ weather?.current_observation.atmosphere.humidity }}
+  {{ weather?.current_observation.atmosphere.visibility }}
+  {{ weather?.current_observation.atmosphere.pressure }}
+  {{ weather?.current_observation.atmosphere.rising }}
 
-  {{ (weather | async)?.current_observation.astronomy.sunrise }}
-  {{ (weather | async)?.current_observation.astronomy.sunset }}
+  {{ weather?.current_observation.astronomy.sunrise }}
+  {{ weather?.current_observation.astronomy.sunset }}
   
-  {{ (weather | async)?.current_observation.condition.text }}
-  {{ (weather | async)?.current_observation.condition.code }}
-  {{ (weather | async)?.current_observation.condition.temperature }}
+  {{ weather?.current_observation.condition.text }}
+  {{ weather?.current_observation.condition.code }}
+  {{ weather?.current_observation.condition.temperature }}
 
-  {{ (weather | async)?.current_observation.condition.pubDate }}
+  {{ weather?.current_observation.condition.pubDate }}
 
 
 </div>
 
 <ul>
-  <li *ngFor="let forecast of (weather | async)?.forecasts">
+  <li *ngFor="let forecast of weather?.forecasts">
     {{ forecast.day }}
     {{ forecast.date }}
     {{ forecast.low }}
