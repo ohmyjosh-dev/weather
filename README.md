@@ -5,6 +5,9 @@ CurrentVersion: 1.0.0
 ## Description
 A simple weather app
 
+## Status
+WIP! Not production ready!
+
 ## Setup Instructions
 ### Step 1
 ```
