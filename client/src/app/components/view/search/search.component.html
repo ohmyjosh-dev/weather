@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let cat of forecast | async | keyvalue">
+  <li *ngFor="let cat of (forecast | async)?.location| keyvalue">
     {{ cat.key }}
 
   </li>

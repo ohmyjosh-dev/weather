@@ -1,22 +1,21 @@
-import { Component, OnInit } from "@angular/core"
-import { WeatherService } from "../../../services/weather.service"
-import { share } from 'rxjs/internal/operators/share'
+import { Component, OnInit } from '@angular/core'
+import { WeatherService } from '../../../services/weather.service'
+import { Observable } from 'rxjs/internal/Observable'
+import { IWeather } from 'src/app/interfaces/IWeather'
 
 @Component({
-  selector: "app-search",
-  templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.scss"]
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-
-  forecast: any
+  forecast: Observable<IWeather>
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
-
     try {
-      this.forecast = this.weatherService.getWeather().pipe(share())
+      this.forecast = this.weatherService.getWeather()
     } catch (error) {
       console.log(error)
     }
