@@ -55,10 +55,12 @@ Open a terminal and navigate to the **root directory** and run
 ```
 node index
 ```
-If you have nodemon installed, then you can run 
+If you have nodemon *https://www.npmjs.com/package/nodemon* installed, then you can run 
 ```
 nodemon start
 ```
+however nodemon is not a prerequisite.\
+\
 Open another terminal, navigate to **client/** and run
 ```
 ng serve --open
