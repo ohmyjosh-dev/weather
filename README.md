@@ -18,7 +18,7 @@ NodeJS and Angular CLI
 Open a terminal and complete the steps below:
 ### Step 1: Clone Repository
 ```
-git clone https://github.com/ohmyjosh-dev/weather.git 
+git clone https://github.com/ohmyjosh-dev/weather.git
 ```
 
 ### Step 2: Install Dependencies
