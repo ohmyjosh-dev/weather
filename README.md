@@ -15,6 +15,7 @@ WIP! **Not production ready!**
 NodeJS and Angular CLI
 
 ## Setup Instructions
+Open a terminal and complete the steps below:
 ### Step 1: Clone Repository
 ```
 git clone https://github.com/jlclarke13/weather.git 
