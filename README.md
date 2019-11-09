@@ -9,6 +9,7 @@ A simple weather app
 WIP! **Not production ready!**
 
 ## Demo
+*Coming Soon*
 
 ## Prerequisites to run local
 NodeJS and Angular CLI
