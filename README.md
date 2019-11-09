@@ -27,7 +27,7 @@ npm install
 ```
 then
 ```
-cd config/
+cd client/
 ```
 then
 ```
