@@ -22,7 +22,7 @@ git clone https://github.com/ohmyjosh-dev/weather.git
 ```
 
 ### Step 2: Install Dependencies
-In the **root directory**, run:
+In the **root directory**, run
 ```
 npm install
 ```
@@ -79,7 +79,7 @@ then navigate to the **root directory** and run
 ```
 node index
 ```
-then open a browser and navigate to **localhost::8080**.
+then open a browser and navigate to **localhost:8080**.
 
 
 ## Author
