@@ -6,22 +6,40 @@ CurrentVersion: 1.0.0
 A simple weather app
 
 ## Status
-WIP! Not production ready!
+WIP! **Not production ready!**
+
+## Demo
+
+## Prerequisites to run local
+NodeJS and Angular CLI
 
 ## Setup Instructions
-### Step 1
+### Step 1: Clone Repository
 ```
 git clone https://github.com/jlclarke13/weather.git 
 ```
 
-### Step 2
-Make a new folder in the root directory named *config*
+### Step 2: Install Dependencies
+In the **root directory**, run:
+```
+npm install
+```
+then
+```
+cd config/
+```
+then
+```
+npm install
+```
 
-### Step 3
-Create a file in the config folder named *yahoo.json*
+### Step 3: Create Configs
+#### Create config directory
+Make a new folder in the root directory named **config**
 
-### Step 4
-Paste the following into *yahoo.json* and replace the values from the ones you get from Yahoo's Weather API. (https://developer.yahoo.com/weather/)
+#### Create yahoo config object
+Create a file in the config folder named **yahoo.json**.\
+Paste the following into **yahoo.json** and replace the values from the ones you get from Yahoo's Weather API. *https://developer.yahoo.com/weather/*
 ```json
 // config/yahoo.json
 {
@@ -30,6 +48,31 @@ Paste the following into *yahoo.json* and replace the values from the ones you g
   "clientSecret": "YOUR_CLIENT_SECRET"
 }
 ```
+
+### Step 4: Run Project
+#### Run using both Node Server and Angular Live Development Server
+Open a terminal and navigate to the **root directory** and run
+```
+node start
+```
+Open another terminal, navigate to **client/** and run
+```
+ng serve --open
+```
+The **--open** flag will open a browser to **localhost:4200**.\
+The backend runs on **localhost:8080**
+
+#### Run using only Node Server
+Open a terminal and navigate to **client/** and run
+```
+ng build
+```
+then navigate to the **root directory** and run
+```
+node start
+```
+then open a browser and navigate to **localhost::8080**.
+
 
 ## Author
 Joshua Clarke
