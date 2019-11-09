@@ -53,7 +53,11 @@ Paste the following into **yahoo.json** and replace the values from the ones you
 #### Run using both Node Server and Angular Live Development Server
 Open a terminal and navigate to the **root directory** and run
 ```
-node start
+node index
+```
+If you have nodemon installed, then you can run 
+```
+nodemon start
 ```
 Open another terminal, navigate to **client/** and run
 ```
@@ -69,7 +73,7 @@ ng build
 ```
 then navigate to the **root directory** and run
 ```
-node start
+node index
 ```
 then open a browser and navigate to **localhost::8080**.
 
