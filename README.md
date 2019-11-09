@@ -81,5 +81,5 @@ Joshua Clarke
 https://github.com/jlclarke13/weather#readme
 
 ## Bugs
-Please feel free to report bugs, however this is not an LTS app.\
+Please feel free to report bugs, however this is not a(n) LTS app.\
 https://github.com/jlclarke13/weather/issues
