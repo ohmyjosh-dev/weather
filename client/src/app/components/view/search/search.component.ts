@@ -14,18 +14,20 @@ export class SearchComponent implements OnInit {
   weather: IWeather
   searchForm: FormGroup
   processing: boolean = false
-  subscription = null;
+  subscription = null
 
   constructor(private weatherService: WeatherService, private formBuilder: FormBuilder) {
     this.createForm()
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.onSearchSubmit()
+  }
 
   createForm() {
     this.searchForm = this.formBuilder.group({
       city: [
-        '',
+        'whitby',
         Validators.compose([
           Validators.required,
           Validators.minLength(2),
@@ -52,9 +54,10 @@ export class SearchComponent implements OnInit {
     try {
       this.subscription = this.weatherService.getWeather(searchParams).subscribe(
         (res: IWeather) => {
+          console.log(res)
           this.weather = res
-          this.processing = false;
-          this.enableForm();
+          this.processing = false
+          this.enableForm()
         },
         err => {
           console.log(err)
@@ -62,7 +65,7 @@ export class SearchComponent implements OnInit {
       )
     } catch (error) {
       console.log(error)
-    } 
+    }
   }
 
   ngOnDestroy() {
