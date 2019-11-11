@@ -28,6 +28,15 @@ const returnDateTimeObject = (dateTime, unit) => {
   return -1
 }
 
+const createDateTimeObjects = (data) => {
+  let modifData = data
+  modifData.current_observation.pubDateTimeObj = returnDateTimeObject(modifData.current_observation.pubDate, 'seconds')
+  modifData.forecasts.forEach(weekday => {
+    weekday.dateTimeObj = returnDateTimeObject(weekday.date, 'seconds')
+  });
+  return modifData
+}
+
 module.exports = router => {
   router.post('/', (req, res) => {
     if (!req.body.city) {
@@ -47,12 +56,9 @@ module.exports = router => {
           console.log(err)
           res.send('Get req server err', err)
         } else {
-          const parsed = JSON.parse(data)
-          let returnData = null
-          const pubDateTimeObj = returnDateTimeObject(parsed.current_observation.pubDate, 'seconds')
-          returnData = parsed
+          let returnData = JSON.parse(data)
+          returnData = createDateTimeObjects(returnData)
           console.log(returnData)
-          returnData.current_observation.pubDateTimeObj = pubDateTimeObj
           res.send(returnData)
         }
       })
