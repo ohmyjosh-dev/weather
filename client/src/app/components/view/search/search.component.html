@@ -1,7 +1,7 @@
 <div>
   <form [formGroup]="searchForm" (submit)="onSearchSubmit()">
-    <app-text-input [name]="'city'" [label]="'City: ex/ Toronto, ON'">
-      <input id="city" type="text" name="city" formControlName="city" />
+    <app-text-input [name]="'city'" [label]="'City: ex/ Toronto, ON'" [fieldValue]="searchForm.get('city')?.value">
+      <input inputRef id="city" type="text" name="city" formControlName="city" />
     </app-text-input>
     <input type="submit" value="submit" />
   </form>

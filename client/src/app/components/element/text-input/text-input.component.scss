@@ -1,0 +1,26 @@
+@import '../../../../scss/imports';
+
+
+:host {
+  &.focus ::ng-deep input + label,
+  .container.filled ::ng-deep input + label {
+    padding: $label-focus-padding;
+  }
+  ::ng-deep input {
+    @extend %block-relative-fw;
+    height: auto;
+    background: transparent;
+    border: none;
+    padding: $input-padding;
+    z-index: 10;
+  }
+  .container {
+    @extend %block-relative-fw;
+    border: 1px solid #ccc;
+  }
+  label {
+    @extend %block-absolute-tl0;
+    padding: $input-padding;
+    z-index: 5;
+  }
+}

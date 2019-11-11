@@ -4,3 +4,19 @@
 @import './scss/imports';
 
 
+html {
+	@include box-sizing(border-box);
+}
+
+*, 
+*:before, 
+*:after {
+	@include box-sizing(border-box);
+}
+
+html {
+  font-size: $base-font-size;
+}
+body {
+  font-size: $base-font-size;  
+}

@@ -17,6 +17,41 @@
   @extend %block-relative-fh;
 }
 
+%block-absolute {
+  display: block;
+  position: absolute;
+}
+%block-absolute-fw {
+  @extend %block-absolute;
+  width: 100%;
+}
+%block-absolute-fh {
+  @extend %block-absolute;
+  height: 100%;
+}
+%block-absolute-fw-fh {
+  @extend %block-absolute-fw;
+  @extend %block-absolute-fh;
+}
+
+%block-absolute-tl0 {
+  @extend %block-absolute;
+  top: 0;
+  left: 0;
+}
+%block-absolute-tl0-fw {
+  @extend %block-absolute-tl0;
+  width: 100%;
+}
+%block-absolute-tl0-fh {
+  @extend %block-absolute-tl0;
+  height: 100%;
+}
+%block-absolute-tl0-fw-fh {
+  @extend %block-absolute-tl0-fw;
+  @extend %block-absolute-tl0-fh;
+}
+
 %block-fixed {
   display: block;
   position: fixed;
