@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { WeatherService } from '../../../services/weather.service'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { Observable } from 'rxjs/internal/Observable'
 import { IWeather } from 'src/app/interfaces/IWeather'
 import { ISearch } from './../../../interfaces/ISearch'
 
