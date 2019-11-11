@@ -44,7 +44,6 @@ module.exports = router => {
         } else {
           let returnData = JSON.parse(data)
           returnData = convertDatesToIso(returnData)
-          console.log(returnData)
           res.send(returnData)
         }
       })
