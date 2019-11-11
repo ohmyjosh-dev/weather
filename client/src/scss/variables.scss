@@ -1,13 +1,21 @@
 // colors
 
+// font-family
+$font-family-default: 'Roboto', Arial, sans-serif;
+
 // font-size
 $base-font-size: 16px;
 $input-font-size: 1rem;
-$label-focus-size: 1rem;
+$label-focus-font-size: 0.78rem;
+
+// font-weight
+$font-weight-normal: 400;
+$font-weight-bold: 700;
 
 // line-height {
-$base-ling-height: 1.25em;
+$base-line-height: 1.25em;
 
 // padding
-$input-padding: 20px;
-$label-focus-padding: 5px
+$input-padding: 28px 10px 10px;
+$label-init-padding: 18px 10px;
+$label-focus-padding: 5px 10px 0;

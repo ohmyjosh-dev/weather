@@ -20,13 +20,12 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.onSearchSubmit()
   }
 
   createForm() {
     this.searchForm = this.formBuilder.group({
       city: [
-        'whitby',
+        '',
         Validators.compose([
           Validators.required,
           Validators.minLength(2),

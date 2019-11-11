@@ -5,6 +5,7 @@
   &.focus ::ng-deep input + label,
   .container.filled ::ng-deep input + label {
     padding: $label-focus-padding;
+    font-size: $label-focus-font-size;
   }
   ::ng-deep input {
     @extend %block-relative-fw;
@@ -12,6 +13,7 @@
     background: transparent;
     border: none;
     padding: $input-padding;
+    font-size: $input-font-size;
     z-index: 10;
   }
   .container {
@@ -20,7 +22,8 @@
   }
   label {
     @extend %block-absolute-tl0;
-    padding: $input-padding;
+    padding: $label-init-padding;
+    font-size: $input-font-size;
     z-index: 5;
   }
 }
