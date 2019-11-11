@@ -29,11 +29,12 @@ module.exports = router => {
       res.json({ success: false, message: 'No search parameters detected' })
     } else {
       const city = req.body.city
+      const units = req.body.units || 'c'
       const header = {
         'X-Yahoo-App-Id': yahooCfg.appId
       }
       const request = new OAuth.OAuth(null, null, yahooCfg.clientId, yahooCfg.clientSecret, '1.0', null, 'HMAC-SHA1', null, header)
-      request.get(`https://weather-ydn-yql.media.yahoo.com/forecastrss?location=${city}&format=json`, null, null, function(
+      request.get(`https://weather-ydn-yql.media.yahoo.com/forecastrss?location=${city}&u=${units}&format=json`, null, null, function(
         err,
         data,
         result
