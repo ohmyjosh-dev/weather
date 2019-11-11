@@ -18,7 +18,7 @@ const convertDatesToIso = (data) => {
   let modifData = data
   modifData.current_observation.pubDateTimeIso = returnDateTimeIso(modifData.current_observation.pubDate, 'seconds')
   modifData.forecasts.forEach(weekday => {
-    weekday.dateTimeObj = returnDateTimeIso(weekday.date, 'seconds')
+    weekday.dateTimeIso = returnDateTimeIso(weekday.date, 'seconds')
   });
   return modifData
 }
