@@ -41,7 +41,7 @@
 <ul>
   <li *ngFor="let forecast of weather?.forecasts">
     {{ forecast.day }}
-    {{ forecast.date }}
+    {{ forecast.dateTimeIso }}
     {{ forecast.low }}
     {{ forecast.high }}
     {{ forecast.text }}
