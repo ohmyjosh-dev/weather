@@ -1,4 +1,5 @@
-<div class="container" [class.filled]="fieldValue">
-  <ng-content></ng-content>
+<div class="container" [class.filled]="fieldValue" [class.has-btn]="hasBtn">
+  <ng-content select="[field]"></ng-content>
   <label [attr.for]="name">{{ label }}</label>
+  <ng-content *ngIf="hasBtn" select="[field-button]"></ng-content>
 </div>

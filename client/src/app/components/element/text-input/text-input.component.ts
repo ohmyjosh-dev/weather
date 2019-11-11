@@ -11,6 +11,7 @@ export class TextInputComponent implements OnInit {
   @Input() name: string
   @Input() label: string
   @Input() fieldValue: string
+  @Input() hasBtn: boolean = false;
 
   @ContentChild(InputRefDirective, { static: false })
   input: InputRefDirective

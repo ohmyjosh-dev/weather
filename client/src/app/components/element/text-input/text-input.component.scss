@@ -7,23 +7,43 @@
     padding: $label-focus-padding;
     font-size: $label-focus-font-size;
   }
-  ::ng-deep input {
-    @extend %block-relative-fw;
-    height: auto;
-    background: transparent;
-    border: none;
-    padding: $input-padding;
-    font-size: $input-font-size;
-    z-index: 10;
+  ::ng-deep {
+    input {
+      @extend %block-relative-fw;
+      height: auto;
+      background: transparent;
+      border: none;
+      padding: $input-padding;
+      font-size: $input-font-size;
+      z-index: 10;
+    }
+    button {
+      @extend %block-absolute;
+      top: 0;
+      right: 0;
+      width: 56px;
+      height: 56px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      z-index: 16;
+    }
   }
   .container {
     @extend %block-relative-fw;
     border: 1px solid #ccc;
+    &.has-btn {
+      ::ng-deep {
+        input {
+          padding: $input-padding-with-button;
+        }
+      }
+    }
   }
   label {
     @extend %block-absolute-tl0;
     padding: $label-init-padding;
     font-size: $input-font-size;
-    z-index: 5;
+    z-index: 15;
   }
 }
