@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { ReactiveFormsModule } from '@angular/forms'
 
 import { SearchComponent } from './search.component'
+import { TextInputComponent } from './../../element/text-input/text-input.component'
 
 describe('SearchComponent', () => {
   let component: SearchComponent
@@ -11,7 +12,7 @@ describe('SearchComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, ReactiveFormsModule],
-      declarations: [SearchComponent]
+      declarations: [SearchComponent, TextInputComponent]
     }).compileComponents()
   }))
 
