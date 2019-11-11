@@ -2,7 +2,7 @@
   <form [formGroup]="searchForm" (submit)="onSearchSubmit()">
     <app-text-input [name]="'city'" [label]="'City: ex/ Toronto, ON'" [hasBtn]="true" [fieldValue]="searchForm.get('city')?.value">
       <input inputRef field id="city" type="text" name="city" formControlName="city" />
-      <button field-button type="submit"><i class="fas fa-search-location"></i></button>
+      <button field-button type="submit" [disabled]='processing'><i class="fas fa-search-location"></i></button>
     </app-text-input>
   </form>
 </div>

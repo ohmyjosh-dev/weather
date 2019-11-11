@@ -19,34 +19,33 @@ export class SearchComponent implements OnInit {
     this.createForm()
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   createForm() {
     this.searchForm = this.formBuilder.group({
-      city: [
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(100)
-        ])
-      ]
+      city: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(100)])]
     })
   }
 
   disableForm() {
     this.searchForm.controls['city'].disable()
+    this.processing = true
   }
 
   enableForm() {
     this.searchForm.controls['city'].enable()
+    this.processing = false
   }
   onSearchSubmit() {
-    this.processing = true
     this.disableForm()
     const searchParams: ISearch = {
       city: this.searchForm.get('city').value
+    }
+
+    if (!searchParams.city) {
+      console.log({ success: false, message: 'No Search Parameters Detected' })
+      this.enableForm()
+      return
     }
 
     try {
@@ -54,7 +53,6 @@ export class SearchComponent implements OnInit {
         (res: IWeather) => {
           console.log(res)
           this.weather = res
-          this.processing = false
           this.enableForm()
         },
         err => {
