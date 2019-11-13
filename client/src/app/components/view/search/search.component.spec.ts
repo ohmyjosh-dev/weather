@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { SearchComponent } from './search.component'
 import { TextInputComponent } from './../../element/text-input/text-input.component'
-import { CardComponent } from "./../../element/card/card.component";
+import { CardComponent } from "../../element/weather-card/weather-card.component";
 
 describe('SearchComponent', () => {
   let component: SearchComponent

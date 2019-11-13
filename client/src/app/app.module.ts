@@ -10,7 +10,7 @@ import { PageNotFoundComponent } from "./components/view/page-not-found/page-not
 import { SearchComponent } from "./components/view/search/search.component";
 import { TextInputComponent } from './components/element/text-input/text-input.component';
 import { InputRefDirective } from './directives/input-ref.directive';
-import { CardComponent } from './components/element/card/card.component';
+import { CardComponent } from './components/element/weather-card/weather-card.component';
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, SearchComponent, TextInputComponent, InputRefDirective, CardComponent],

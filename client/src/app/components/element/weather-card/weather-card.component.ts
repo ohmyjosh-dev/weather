@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  selector: 'weather-card',
+  templateUrl: './weather-card.component.html',
+  styleUrls: ['./weather-card.component.scss']
 })
 export class CardComponent implements OnInit {
 

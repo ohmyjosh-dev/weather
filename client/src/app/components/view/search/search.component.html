@@ -8,12 +8,15 @@
     </form>
   </div>
   <div>
-    <card>
-      
-    </card>
-    {{ weather?.location.city }}
-    {{ weather?.location.country }}
-    {{ weather?.location.lat }}
+    <weather-card>
+      <span city-name>{{ weather?.location.city }}</span>
+      <span country-name>{{ weather?.location.country }}</span>
+      <span sunrise>{{ weather?.current_observation.astronomy.sunrise }}</span>
+      <span sunset>{{ weather?.current_observation.astronomy.sunset }}</span>
+    </weather-card>
+    
+    
+   <!--  {{ weather?.location.lat }}
     {{ weather?.location.long }}
     {{ weather?.location.region }}
     {{ weather?.location.timezone_id }}
@@ -28,20 +31,18 @@
     {{ weather?.current_observation.atmosphere.pressure }}
     {{ weather?.current_observation.atmosphere.rising }}
 
-    {{ weather?.current_observation.astronomy.sunrise }}
-    {{ weather?.current_observation.astronomy.sunset }}
     
     {{ weather?.current_observation.condition.text }}
     {{ weather?.current_observation.condition.code }}
     {{ weather?.current_observation.condition.temperature }}
 
-    {{ weather?.current_observation.pubDateTimeIso }}
+    {{ weather?.current_observation.pubDateTimeIso }} -->
 
 
   </div>
 
   <div>
-    <ul>
+    <!-- <ul>
       <li *ngFor="let forecast of weather?.forecasts">
         {{ forecast.day }}
         {{ forecast.dateTimeIso }}
@@ -49,6 +50,6 @@
         {{ forecast.high }}
         {{ forecast.text }}
       </li>
-    </ul>
+    </ul> -->
   </div>
 </div>
