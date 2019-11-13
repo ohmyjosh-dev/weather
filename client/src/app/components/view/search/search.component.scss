@@ -1,0 +1,30 @@
+@import '../../../../scss/imports';
+@import '../../../../scss/conditions';
+
+:host {
+  .container {
+    @extend %block-relative-fw-fh;
+    color: $text-dark-theme;
+
+    &:before {
+      @extend %block-absolute-fw-fh;
+      content: '';
+      background: $img-dark-overlay;
+    }
+
+    > div {
+      @extend %block-relative-fw;
+    }
+
+    &.condition_14 {
+      background: url('/assets/img/light_snow.jpg') center center / cover;
+    }
+    &.condition_16 {
+      background: url('/assets/img/snow.jpg') center center / cover;
+    }
+  }
+  input,
+  button {
+    color: $text-dark-theme;
+  }
+}

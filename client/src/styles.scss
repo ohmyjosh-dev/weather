@@ -15,12 +15,18 @@ html {
 }
 
 html {
+  @extend %block-relative-fw-fh;
   font-size: $base-font-size;
 }
 body {
-  @extend %block-relative-fw;
+  @extend %block-relative-fw-fh;
   font-family: $font-family-default;
   font-size: $base-font-size;  
   font-weight: $font-weight-normal;
   line-height: $base-line-height;
+}
+
+app-root,
+app-search {
+  @extend %block-relative-fw-fh;
 }

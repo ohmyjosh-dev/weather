@@ -31,7 +31,6 @@
   }
   .container {
     @extend %block-relative-fw;
-    border: 1px solid #ccc;
     &.has-btn {
       ::ng-deep {
         input {

@@ -10,9 +10,10 @@ import { PageNotFoundComponent } from "./components/view/page-not-found/page-not
 import { SearchComponent } from "./components/view/search/search.component";
 import { TextInputComponent } from './components/element/text-input/text-input.component';
 import { InputRefDirective } from './directives/input-ref.directive';
+import { CardComponent } from './components/element/card/card.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, SearchComponent, TextInputComponent, InputRefDirective],
+  declarations: [AppComponent, PageNotFoundComponent, SearchComponent, TextInputComponent, InputRefDirective, CardComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]

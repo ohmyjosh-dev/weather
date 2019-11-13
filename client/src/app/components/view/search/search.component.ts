@@ -19,11 +19,13 @@ export class SearchComponent implements OnInit {
     this.createForm()
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.onSearchSubmit()
+  }
 
   createForm() {
     this.searchForm = this.formBuilder.group({
-      city: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(100)])]
+      city: ['Whitby', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(100)])]
     })
   }
 
@@ -35,6 +37,14 @@ export class SearchComponent implements OnInit {
   enableForm() {
     this.searchForm.controls['city'].enable()
     this.processing = false
+  }
+  setWeatherClass() {
+    if (this.weather && this.weather.current_observation) {
+      const condition = this.weather.current_observation.condition.code;
+      return 'condition_' + condition
+    } else {
+      return ''
+    }
   }
   onSearchSubmit() {
     this.disableForm()
