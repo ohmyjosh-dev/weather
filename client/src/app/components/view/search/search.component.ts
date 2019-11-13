@@ -5,7 +5,7 @@ import { IWeather } from 'src/app/interfaces/IWeather'
 import { ISearch } from './../../../interfaces/ISearch'
 
 @Component({
-  selector: 'app-search',
+  selector: 'search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })

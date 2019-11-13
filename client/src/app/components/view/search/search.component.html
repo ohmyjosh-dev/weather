@@ -1,13 +1,16 @@
 <div class="container" [ngClass]="setWeatherClass()">
   <div>
     <form [formGroup]="searchForm" (submit)="onSearchSubmit()">
-      <app-text-input [name]="'city'" [label]="'City: ex/ Toronto, ON'" [hasBtn]="true" [fieldValue]="searchForm.get('city')?.value">
+      <text-input [name]="'city'" [label]="'City: ex/ Toronto, ON'" [hasBtn]="true" [fieldValue]="searchForm.get('city')?.value">
         <input inputRef field id="city" type="text" name="city" formControlName="city" />
         <button field-button type="submit" [disabled]='processing'><i class="fas fa-search-location"></i></button>
-      </app-text-input>
+      </text-input>
     </form>
   </div>
   <div>
+    <card>
+      
+    </card>
     {{ weather?.location.city }}
     {{ weather?.location.country }}
     {{ weather?.location.lat }}

@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ContentChild, HostBinding } from '@angular/co
 import { InputRefDirective } from './../../../directives/input-ref.directive'
 
 @Component({
-  selector: 'app-text-input',
+  selector: 'text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.scss']
 })
