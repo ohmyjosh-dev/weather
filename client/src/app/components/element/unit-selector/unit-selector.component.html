@@ -1,10 +1,10 @@
 <div class="container">
   <div>
-    <ng-content select="[celcius]"></ng-content>
-    <label for="celcius">C</label>
+    <ng-content select="[unit-0]"></ng-content>
+    <label [attr.for]="ids[0]">{{ labels[0] }}</label>
   </div>
   <div>
-    <ng-content select="[fahrenheit]"></ng-content>
-    <label for="fahrenheit">F</label>
+    <ng-content select="[unit-1]"></ng-content>
+    <label [attr.for]="ids[1]">{{ labels[1] }}</label>
   </div>
 </div>

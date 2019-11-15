@@ -1,3 +1,4 @@
 export interface ISearch {
-  city: string
+  city: string,
+  units: string
 }

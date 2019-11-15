@@ -7,15 +7,19 @@
             <input inputRef field id="city" type="text" name="city" formControlName="city" />
             <button field-button type="submit" [disabled]="processing"><i class="fas fa-search-location"></i></button>
           </text-input>
+          <unit-selector [labels]="['Celcius', 'Fahrenheit']" [ids]="['celcius', 'fahrenheit']">
+            <input unit-0 type="radio" name="units" id="celcius" formControlName="units" value="c" />
+            <input unit-1 type="radio" name="units" id="fahrenheit" formControlName="units" value="f" />
+          </unit-selector>
         </form>
       </div>
       <span city-name>{{ weather?.location.city }}</span>
       <span country-name>{{ weather?.location.country }}</span>
       <span current-temp>{{ weather?.current_observation.condition.temperature }}</span>
-      <unit-selector unit-selector>
-        <input celcius type="radio" name="units" id="celcius" [checked]="units === 'c'" (change)="changeUnits()" />
-        <input fahrenheit type="radio" name="units" id="fahrenheit" [checked]="units === 'f'" (change)="changeUnits()" />
-      </unit-selector>
+      <!-- <unit-selector unit-selector>
+        <input unit-1 type="radio" name="units" id="celcius" />
+        <input unit-2 type="radio" name="units" id="fahrenheit" />
+      </unit-selector> -->
       <span sunrise>{{ weather?.current_observation.astronomy.sunrise }}</span>
       <span sunset>{{ weather?.current_observation.astronomy.sunset }}</span>
     </weather-card>

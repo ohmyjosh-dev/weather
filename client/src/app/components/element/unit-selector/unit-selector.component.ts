@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'unit-selector',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./unit-selector.component.scss']
 })
 export class UnitSelectorComponent implements OnInit {
+
+  @Input() labels: any[] = [null, null]
+  @Input() ids: any[] = [null, null]
 
   constructor() { }
 

@@ -14,7 +14,6 @@ export class SearchComponent implements OnInit {
   searchForm: FormGroup
   processing: boolean = false
   hasSearched: boolean = false
-  units: string = 'c'
   subscription = null
 
   constructor(private weatherService: WeatherService, private formBuilder: FormBuilder) {
@@ -27,7 +26,10 @@ export class SearchComponent implements OnInit {
 
   createForm() {
     this.searchForm = this.formBuilder.group({
-      city: ['Whitby', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(100)])]
+      city: ['Whitby', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(100)])],
+      units: ['c', Validators.compose([
+        Validators.required
+      ])]
     })
   }
 
@@ -49,7 +51,7 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  requestWeather(searchParams: ISearch, units: string) {
+  requestWeather(searchParams: ISearch) {
     try {
       this.subscription = this.weatherService.getWeather(searchParams).subscribe(
         (res: IWeather) => {
@@ -69,8 +71,10 @@ export class SearchComponent implements OnInit {
 
   onSearchSubmit() {
     this.disableForm()
+    console.log(this.searchForm.get('units').value)
     const searchParams: ISearch = {
-      city: this.searchForm.get('city').value
+      city: this.searchForm.get('city').value,
+      units: this.searchForm.get('units').value
     }
 
     if (!searchParams.city) {
@@ -78,15 +82,7 @@ export class SearchComponent implements OnInit {
       this.enableForm()
       return
     }
-    this.requestWeather(searchParams, this.units)
-  }
-
-  changeUnits() {
-    if (this.units === 'c') {
-      this.units = 'f'
-    } else {
-      this.units = 'c'
-    }
+    this.requestWeather(searchParams)
   }
 
   ngOnDestroy() {
