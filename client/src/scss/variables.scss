@@ -1,13 +1,12 @@
 // colors
-$img-dark-overlay: rgba(0, 0, 0, 0.5);
-$img-dark-overlay: #fff;
-$text-dark-theme: #000;
+$text-light-theme: #000;
 
 // font-family
 $font-family-default: 'Roboto', Arial, sans-serif;
 
 // font-size
 $base-font-size: 16px;
+$city-name-small: 1.7rem;
 $input-font-size: 1rem;
 $label-focus-font-size: 0.78rem;
 
@@ -15,11 +14,18 @@ $label-focus-font-size: 0.78rem;
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 
+// heights
+$header-height-small: 200px;
+
 // line-height {
 $base-line-height: 1.25em;
+
+// margins
+$bottom-margin: 1rem;
 
 // padding
 $input-padding: 28px 10px 10px;
 $input-padding-with-button: 28px 66px 10px 10px;
 $label-init-padding: 18px 10px;
 $label-focus-padding: 5px 10px 0;
+$card-header-padding-small: 10px;

@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   weather: IWeather
   searchForm: FormGroup
   processing: boolean = false
+  hasSearched: boolean = false
   subscription = null
 
   constructor(private weatherService: WeatherService, private formBuilder: FormBuilder) {
@@ -38,9 +39,9 @@ export class SearchComponent implements OnInit {
     this.searchForm.controls['city'].enable()
     this.processing = false
   }
-  setWeatherClass() {
+  getWeatherClass() {
     if (this.weather && this.weather.current_observation) {
-      const condition = this.weather.current_observation.condition.code;
+      const condition = this.weather.current_observation.condition.code
       return 'condition_' + condition
     } else {
       return ''
@@ -64,6 +65,7 @@ export class SearchComponent implements OnInit {
           console.log(res)
           this.weather = res
           this.enableForm()
+          this.hasSearched = true
         },
         err => {
           console.log(err)

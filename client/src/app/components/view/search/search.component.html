@@ -1,22 +1,22 @@
-<div class="container" [ngClass]="setWeatherClass()">
+<div class="container">
   <div>
-    <form [formGroup]="searchForm" (submit)="onSearchSubmit()">
-      <text-input [name]="'city'" [label]="'City: ex/ Toronto, ON'" [hasBtn]="true" [fieldValue]="searchForm.get('city')?.value">
-        <input inputRef field id="city" type="text" name="city" formControlName="city" />
-        <button field-button type="submit" [disabled]='processing'><i class="fas fa-search-location"></i></button>
-      </text-input>
-    </form>
-  </div>
-  <div>
-    <weather-card>
+    <weather-card [weatherClass]="getWeatherClass()" [hasSearched]="hasSearched">
+      <div city-search>
+        <form [formGroup]="searchForm" (submit)="onSearchSubmit()">
+          <text-input [name]="'city'" [label]="'City: ex/ Toronto, ON'" [hasBtn]="true" [fieldValue]="searchForm.get('city')?.value">
+            <input inputRef field id="city" type="text" name="city" formControlName="city" />
+            <button field-button type="submit" [disabled]="processing"><i class="fas fa-search-location"></i></button>
+          </text-input>
+        </form>
+      </div>
       <span city-name>{{ weather?.location.city }}</span>
       <span country-name>{{ weather?.location.country }}</span>
+      <span current-temp>{{ weather?.current_observation.condition.temperature }}</span>
       <span sunrise>{{ weather?.current_observation.astronomy.sunrise }}</span>
       <span sunset>{{ weather?.current_observation.astronomy.sunset }}</span>
     </weather-card>
-    
-    
-   <!--  {{ weather?.location.lat }}
+
+    <!--  {{ weather?.location.lat }}
     {{ weather?.location.long }}
     {{ weather?.location.region }}
     {{ weather?.location.timezone_id }}
@@ -33,12 +33,8 @@
 
     
     {{ weather?.current_observation.condition.text }}
-    {{ weather?.current_observation.condition.code }}
-    {{ weather?.current_observation.condition.temperature }}
 
     {{ weather?.current_observation.pubDateTimeIso }} -->
-
-
   </div>
 
   <div>

@@ -1,6 +1,5 @@
 @import '../../../../scss/imports';
 
-
 :host {
   &.focus ::ng-deep input + label,
   .container.filled ::ng-deep input + label {
@@ -16,6 +15,9 @@
       padding: $input-padding;
       font-size: $input-font-size;
       z-index: 10;
+      &:-internal-autofill-selected {
+        background: transparent !important;
+      }
     }
     button {
       @extend %block-absolute;

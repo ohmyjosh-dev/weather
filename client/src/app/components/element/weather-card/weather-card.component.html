@@ -1,9 +1,20 @@
 <div class="container">
-  <h1><ng-content select="[city-name]"></ng-content></h1>
-  <p><ng-content select="[country-name]"></ng-content></p>
+  <header [class]="weatherClass" [ngClass]="{ 'has-searched': hasSearched }">
+    <ng-content select="[city-search]"></ng-content>
+    <section>
+      <h1><ng-content select="[city-name]"></ng-content></h1>
+      <p class="country"><ng-content select="[country-name]"></ng-content></p>
+      <section class="temp-container">
+        <div>
+          <p class="main"><ng-content select="[current-temp]"></ng-content></p>
+        </div>
+        <div>
+        </div>
+      </section>
+    </section>
+  </header>
   <ng-content select="[sunrise]"></ng-content>
   <ng-content select="[sunset]"></ng-content>
-  <ng-content select="[]"></ng-content>
   <ng-content select="[]"></ng-content>
   <ng-content select="[]"></ng-content>
   <ng-content select="[]"></ng-content>

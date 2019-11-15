@@ -1,4 +1,27 @@
 @import '../../../../scss/imports';
+@import '../../../../scss/conditions';
 
 :host {
+  header {
+    @extend %block-relative-fw;
+    height: auto;
+    &.has-searched {
+      height: $header-height-small;
+      > section {
+        display: block;
+      }
+    }
+    > section {
+      display: none;
+    }
+  }
+
+  h1 {
+    padding: $card-header-padding-small $card-header-padding-small 0;
+    font-size: $city-name-small;
+  }
+
+  .country {
+    padding: 3px $card-header-padding-small $bottom-margin;
+  }
 }
