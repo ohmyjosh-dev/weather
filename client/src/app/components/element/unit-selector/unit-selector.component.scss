@@ -1,12 +1,27 @@
 @import '../../../../scss/imports';
 
 :host {
+  .container {
+    @extend %block-relative;
+    width: $input-height * 2;
+    height: $input-height;
+    line-height: $input-height;
+    &:before,
+    &:after {
+      @extend %clearfix;
+    }
+    > div {
+      @extend %block-relative-fh;
+      width: 50%;
+      float: left;
+    }
+  }
   ::ng-deep {
     input[type="radio"] {
       display: none;
       + label {
-        @extend %block-relative-fw;
-        padding: 5px 5px 0;
+        @extend %block-relative-fw-fh;
+        text-align: center;
       }
       &:checked {
         + label {

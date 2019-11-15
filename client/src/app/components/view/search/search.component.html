@@ -3,14 +3,14 @@
     <weather-card [weatherClass]="getWeatherClass()" [hasSearched]="hasSearched">
       <div city-search>
         <form [formGroup]="searchForm" (submit)="onSearchSubmit()">
-          <text-input [name]="'city'" [label]="'City: ex/ Toronto, ON'" [hasBtn]="true" [fieldValue]="searchForm.get('city')?.value">
+          <text-input [name]="'city'" [label]="'City: ex/ Toronto, ON'" [hasBtn]="true" [hasUnitSelector]="true" [fieldValue]="searchForm.get('city')?.value">
             <input inputRef field id="city" type="text" name="city" formControlName="city" />
+            <unit-selector unit-selector [labels]="['C', 'F']" [ids]="['celcius', 'fahrenheit']">
+              <input unit-0 type="radio" name="units" id="celcius" formControlName="units" value="c" />
+              <input unit-1 type="radio" name="units" id="fahrenheit" formControlName="units" value="f" />
+            </unit-selector>
             <button field-button type="submit" [disabled]="processing"><i class="fas fa-search-location"></i></button>
           </text-input>
-          <unit-selector [labels]="['Celcius', 'Fahrenheit']" [ids]="['celcius', 'fahrenheit']">
-            <input unit-0 type="radio" name="units" id="celcius" formControlName="units" value="c" />
-            <input unit-1 type="radio" name="units" id="fahrenheit" formControlName="units" value="f" />
-          </unit-selector>
         </form>
       </div>
       <span city-name>{{ weather?.location.city }}</span>

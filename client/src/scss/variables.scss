@@ -16,6 +16,7 @@ $font-weight-bold: 700;
 
 // heights
 $header-height-small: 200px;
+$input-height: 56px;
 
 // line-height {
 $base-line-height: 1.25em;
@@ -24,8 +25,10 @@ $base-line-height: 1.25em;
 $bottom-margin: 1rem;
 
 // padding
+$card-header-padding-small: 10px;
 $input-padding: 28px 10px 10px;
 $input-padding-with-button: 28px 66px 10px 10px;
+$input-padding-with-selector: 28px 122px 10px 10px;
+$input-padding-with-btn-and-sel: 28px 178px 10px 10px;
 $label-init-padding: 18px 10px;
 $label-focus-padding: 5px 10px 0;
-$card-header-padding-small: 10px;

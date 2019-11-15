@@ -1,5 +1,6 @@
-<div class="container" [class.filled]="fieldValue" [class.has-btn]="hasBtn">
+<div class="container" [class.filled]="fieldValue" [class.has-btn]="hasBtn" [class.has-unit-selector]="hasUnitSelector">
   <ng-content select="[field]"></ng-content>
-  <label [attr.for]="name">{{ label }}</label>
+  <label class="input-lbl" [attr.for]="name">{{ label }}</label>
   <ng-content *ngIf="hasBtn" select="[field-button]"></ng-content>
+  <ng-content *ngIf="hasUnitSelector" select="[unit-selector]"></ng-content>
 </div>

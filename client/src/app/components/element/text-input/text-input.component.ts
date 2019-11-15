@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ContentChild, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, HostBinding } from '@angular/core'
 import { InputRefDirective } from './../../../directives/input-ref.directive'
 
 @Component({
@@ -7,23 +7,21 @@ import { InputRefDirective } from './../../../directives/input-ref.directive'
   styleUrls: ['./text-input.component.scss']
 })
 export class TextInputComponent implements OnInit {
-
   @Input() name: string
   @Input() label: string
   @Input() fieldValue: string
-  @Input() hasBtn: boolean = false;
+  @Input() hasBtn: boolean = false
+  @Input() hasUnitSelector: boolean = false
 
   @ContentChild(InputRefDirective, { static: false })
   input: InputRefDirective
 
-  @HostBinding("class.focus")
+  @HostBinding('class.focus')
   get focus() {
     return this.input ? this.input.focus : false
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

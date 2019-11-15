@@ -1,8 +1,8 @@
 @import '../../../../scss/imports';
 
 :host {
-  &.focus ::ng-deep input + label,
-  .container.filled ::ng-deep input + label {
+  &.focus ::ng-deep input + label.input-lbl,
+  .container.filled ::ng-deep input + label.input-lbl {
     padding: $label-focus-padding;
     font-size: $label-focus-font-size;
   }
@@ -15,16 +15,13 @@
       padding: $input-padding;
       font-size: $input-font-size;
       z-index: 10;
-      &:-internal-autofill-selected {
-        background: transparent !important;
-      }
     }
     button {
       @extend %block-absolute;
       top: 0;
       right: 0;
-      width: 56px;
-      height: 56px;
+      width: $input-height;
+      height: $input-height;
       border: none;
       background: transparent;
       cursor: pointer;
@@ -40,8 +37,31 @@
         }
       }
     }
+    &.has-unit-selector {
+      ::ng-deep {
+        input {
+          padding: $input-padding-with-selector;
+        }
+        unit-selector {
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: 16;
+        }
+      }
+    }
+    &.has-btn.has-unit-selector {
+      ::ng-deep {
+        input {
+          padding: $input-padding-with-btn-and-sel;
+        }
+        unit-selector {
+          right: $input-height;
+        }
+      }
+    }
   }
-  label {
+  label.input-lbl {
     @extend %block-absolute-tl0;
     padding: $label-init-padding;
     font-size: $input-font-size;
