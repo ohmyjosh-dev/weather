@@ -1,10 +1,18 @@
-:host {
-  .container {
+@import '../../../../scss/imports';
 
-  }
+:host {
   ::ng-deep {
-    input {
-      
+    input[type="radio"] {
+      display: none;
+      + label {
+        @extend %block-relative-fw;
+        padding: 5px 5px 0;
+      }
+      &:checked {
+        + label {
+          font-weight: $font-weight-bold;
+        }
+      }
     }
   }
 }

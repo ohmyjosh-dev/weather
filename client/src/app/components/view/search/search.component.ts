@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
   searchForm: FormGroup
   processing: boolean = false
   hasSearched: boolean = false
+  units: string = 'c'
   subscription = null
 
   constructor(private weatherService: WeatherService, private formBuilder: FormBuilder) {
@@ -47,18 +48,8 @@ export class SearchComponent implements OnInit {
       return ''
     }
   }
-  onSearchSubmit() {
-    this.disableForm()
-    const searchParams: ISearch = {
-      city: this.searchForm.get('city').value
-    }
 
-    if (!searchParams.city) {
-      console.log({ success: false, message: 'No Search Parameters Detected' })
-      this.enableForm()
-      return
-    }
-
+  requestWeather(searchParams: ISearch, units: string) {
     try {
       this.subscription = this.weatherService.getWeather(searchParams).subscribe(
         (res: IWeather) => {
@@ -73,6 +64,28 @@ export class SearchComponent implements OnInit {
       )
     } catch (error) {
       console.log(error)
+    }
+  }
+
+  onSearchSubmit() {
+    this.disableForm()
+    const searchParams: ISearch = {
+      city: this.searchForm.get('city').value
+    }
+
+    if (!searchParams.city) {
+      console.log({ success: false, message: 'No Search Parameters Detected' })
+      this.enableForm()
+      return
+    }
+    this.requestWeather(searchParams, this.units)
+  }
+
+  changeUnits() {
+    if (this.units === 'c') {
+      this.units = 'f'
+    } else {
+      this.units = 'c'
     }
   }
 
