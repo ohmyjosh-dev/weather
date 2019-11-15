@@ -50,7 +50,7 @@ export interface Forecast {
 }
 
 export interface IWeather {
-  location: Location
-  current_observation: CurrentObservation
-  forecasts: Forecast[]
+  location?: Location
+  current_observation?: CurrentObservation
+  forecasts?: Forecast[]
 }

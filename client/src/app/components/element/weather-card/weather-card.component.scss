@@ -24,4 +24,41 @@
   .country {
     padding: 3px $card-header-padding-small $bottom-margin;
   }
+
+  .temp-container {
+    @extend %block-relative;
+    display: inline-block;
+    padding-left: $card-header-padding-small;
+    width: auto;
+    > div {
+      @extend %block-relative;
+      display: inline-block;
+      vertical-align: top;
+      width: auto;
+      text-align: center;
+    }
+    p {
+      font-size: 3.3rem;
+      line-height: normal;
+    }
+    ::ng-deep unit-selector {
+      .container {
+        width: $input-height / 2;
+        margin-top: 3px;
+        height: $unit-selector-height-small;
+        line-height: normal;
+        > div {
+          &:first-child {
+            padding-top: 6px;
+          }
+          &:last-child {
+            padding-bottom: 6px;
+          }
+          width: 100%;
+          height: 50%;
+          float: none;
+        }
+      }
+    }
+  }
 }

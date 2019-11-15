@@ -12,34 +12,44 @@ import { ISearch } from './../../../interfaces/ISearch'
 export class SearchComponent implements OnInit {
   weather: IWeather
   searchForm: FormGroup
+  unitSelectorForm: FormGroup
   processing: boolean = false
   hasSearched: boolean = false
   subscription = null
 
   constructor(private weatherService: WeatherService, private formBuilder: FormBuilder) {
-    this.createForm()
+    this.createForms()
   }
 
   ngOnInit() {
     this.onSearchSubmit()
   }
 
-  createForm() {
+  createForms() {
     this.searchForm = this.formBuilder.group({
       city: ['Whitby', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(100)])],
       units: ['c', Validators.compose([
         Validators.required
       ])]
     })
+    this.unitSelectorForm = this.formBuilder.group({
+      units: ['c', Validators.compose([
+          Validators.required
+      ])]
+    })
   }
 
   disableForm() {
     this.searchForm.controls['city'].disable()
+    this.searchForm.controls['units'].disable()
+    this.unitSelectorForm.controls['units'].disable()
     this.processing = true
   }
 
   enableForm() {
     this.searchForm.controls['city'].enable()
+    this.searchForm.controls['units'].enable()
+    this.unitSelectorForm.controls['units'].enable()
     this.processing = false
   }
   getWeatherClass() {
@@ -57,6 +67,12 @@ export class SearchComponent implements OnInit {
         (res: IWeather) => {
           console.log(res)
           this.weather = res
+          this.searchForm.patchValue({
+            units: searchParams.units
+          })
+          this.unitSelectorForm.patchValue({
+            units: searchParams.units
+          })
           this.enableForm()
           this.hasSearched = true
         },
@@ -69,20 +85,38 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  checkSearchParams(searchParams: ISearch) {
+    if (!searchParams.city || searchParams.city === '') {
+      console.log({ success: false, message: 'No Search Parameters Detected' })
+      this.hasSearched = false
+      this.weather = {}
+      this.enableForm()
+      return false
+    } else return true
+  }
+
   onSearchSubmit() {
     this.disableForm()
-    console.log(this.searchForm.get('units').value)
     const searchParams: ISearch = {
       city: this.searchForm.get('city').value,
       units: this.searchForm.get('units').value
     }
-
-    if (!searchParams.city) {
-      console.log({ success: false, message: 'No Search Parameters Detected' })
-      this.enableForm()
-      return
+    const valid = this.checkSearchParams(searchParams)
+    if (valid) {
+      this.requestWeather(searchParams)
     }
-    this.requestWeather(searchParams)
+  }
+
+  changeUnits(unit: string) {
+    this.disableForm()
+    const searchParams: ISearch = {
+      city: this.weather.location.city,
+      units: unit
+    }
+    const valid = this.checkSearchParams(searchParams)
+    if (valid) {
+      this.requestWeather(searchParams)
+    }
   }
 
   ngOnDestroy() {
